@@ -6,6 +6,9 @@ jobs:
     if: "!contains(github.event.head-commit.message, '[skip ci]')"
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.23.0
       - name: install dependencies
         run: pnpm install
       - name: run tests
