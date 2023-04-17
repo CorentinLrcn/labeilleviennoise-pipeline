@@ -1,0 +1,12 @@
+name: Tests
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head-commit.message, '[skip ci]')"
+    steps:
+      - uses: actions/checkout@v3
+      - name: install dependencies
+        run: pnpm i
+      - name: run tests
+        run: pnpm test
